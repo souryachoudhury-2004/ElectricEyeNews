@@ -13,7 +13,7 @@ with st.form(key="editor"):
     send_button = st.form_submit_button("Send!")
 
     url = f"https://newsapi.org/v2/everything?q={news_topic}" \
-          "&sortBy=publishedAt&apiKey=44b9ab3b4632425681b6253ce70f7131"
+          "&sortBy=publishedAt&language=en&apiKey=44b9ab3b4632425681b6253ce70f7131"
 
 
     try:
@@ -41,7 +41,7 @@ with st.form(key="editor"):
                     message = f"Subject: {title} \n\n {description} \n\n {link}"
                     message = message.encode("utf-8")
                     mail(receiver_email, message)
-                    st.info("Compilation Sent!")
+                st.info("Compilation Sent!")
 
     except:
         st.info("There was an error :(")
